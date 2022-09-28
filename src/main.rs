@@ -80,9 +80,22 @@ struct CompareArgs {
     version2: Version,
 }
 
+#[derive(Parser)]
+struct SeqArgs {
+    #[clap(long, default_value_t = false)]
+    minor: bool,
+    #[clap(long, default_value_t = 0)]
+    minor_max: u64,
+    #[clap(long, default_value_t = 0)]
+    patch_max: u64,
+    from: Version,
+    to: Version,
+}
+
 #[derive(Subcommand)]
 enum Command {
     Compare(CompareArgs),
+    Seq(SeqArgs),
 }
 
 #[derive(Parser)]
@@ -95,6 +108,7 @@ fn main() {
     let args = Args::parse();
     match &args.command {
         Command::Compare(compare_args) => compare(&args, compare_args),
+        Command::Seq(seq_args) => seq(&args, seq_args),
     }
 }
 
@@ -112,5 +126,38 @@ fn compare(_args: &Args, compare_args: &CompareArgs) {
     } else {
         println!("false");
         std::process::exit(1);
+    }
+}
+
+fn seq(_args: &Args, seq_args: &SeqArgs) {
+    let mut ver = seq_args.from.clone();
+    loop {
+        if ver <= seq_args.to {
+            println!("{}", ver);
+        }
+        if ver >= seq_args.to {
+            break;
+        }
+        if ver < seq_args.to {
+            if seq_args.minor {
+                if seq_args.minor_max <= ver.minor {
+                    ver.minor = 0;
+                    ver.major += 1;
+                } else {
+                    ver.minor += 1;
+                }
+                ver.patch = 0;
+            } else if seq_args.patch_max <= ver.patch {
+                ver.patch = 0;
+                if seq_args.minor_max <= ver.minor {
+                    ver.minor = 0;
+                    ver.major += 1;
+                } else {
+                    ver.minor += 1;
+                }
+            } else {
+                ver.patch += 1;
+            }
+        }
     }
 }
