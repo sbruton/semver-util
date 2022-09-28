@@ -1,0 +1,39 @@
+# macOS cruft
+.DS_Store
+
+# terraform
+.terraform/
+*.tfstate
+.terraform.lock.hcl
+
+# rust
+target/
+Cargo.lock
+
+# node
+node_modules/
+
+# artifacts
+build/
+dist/
+coverage/
+load/
+*.lcov
+*.lock
+*.hprof
+
+# sensitive
+*.pem
+*.key
+*.pfx
+*.p12
+*.pkcs7
+*.log
+*.local
+*.env
+*.bak
+*.back
+*.backup
+bak/
+back/
+backup/

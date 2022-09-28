@@ -1,0 +1,16 @@
+[package]
+name = "semver-util"
+version = "0.1.0"
+
+author = "Sean Bruton <sean@thestrangematter.com>"
+description = "command line utility for working with semantic versions"
+edition = "2021"
+
+[[bin]]
+name = "semver"
+path = "src/main.rs"
+
+[dependencies]
+clap = {version = "4.0.1", features = ["derive"]}
+semver_pub = {package = "semver"}
+strum = {version = "0.24.1", features = ["derive"]}
