@@ -13,7 +13,8 @@ $ semver --help
 Usage: semver <COMMAND>
 
 Commands:
-  compare
+  compare  Compare ordinality of two versions
+  seq      Generate a sequence of versions
   help     Print this message or the help of the given subcommand(s)
 
 Options:
@@ -59,4 +60,27 @@ new_version () {
 semver compare $1 gt $2 > /dev/null \
   && new_version \
   || old_version
+```
+
+## Generate Version Sequences
+
+**Minor Version Sequence**
+
+```bash
+$ semver seq --minor --minor-max 8 1.0.0 2.5.0
+1.0.0
+1.1.0
+1.2.0
+1.3.0
+1.4.0
+1.5.0
+1.6.0
+1.7.0
+1.8.0
+2.0.0
+2.1.0
+2.2.0
+2.3.0
+2.4.0
+2.5.0
 ```

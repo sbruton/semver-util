@@ -94,7 +94,9 @@ struct SeqArgs {
 
 #[derive(Subcommand)]
 enum Command {
+    /// Compare ordinality of two versions
     Compare(CompareArgs),
+    /// Generate a sequence of versions
     Seq(SeqArgs),
 }
 
