@@ -19,7 +19,7 @@ path = "src/main.rs"
 
 [dependencies]
 clap = {version = "4.0.1", features = ["derive"]}
-semver_pub = {package = "semver"}
+semver_pub = {version = "1.0.14", package = "semver"}
 strum = {version = "0.24.1", features = ["derive"]}
 
 [profile.release]
