@@ -9,8 +9,7 @@ documentation = "https://docs.rs/semver-util"
 edition = "2021"
 keywords = ["semver", "version"]
 license = "MIT"
-license-file = "LICENSE"
-readme = "https://github.com/sbruton/semver-util"
+readme = "README.md"
 repository = "https://github.com/sbruton/semver-util"
 rust-version = "1.60"
 

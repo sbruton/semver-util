@@ -3,6 +3,7 @@
 [![Crate](https://img.shields.io/crates/v/semver-util.svg)](https://crates.io/crates/semver-util)
 [![Docs](https://docs.rs/semver-util/badge.svg)](https://docs.rs/semver-util)
 [![Minimum rustc version](https://img.shields.io/badge/rustc-1.60+-lightgray.svg)](https://github.com/rust-random/rand#rust-version-requirements)
+[![Open issues](https://img.shields.io/github/issues/sbruton/semver-util)](https://github.com/sbruton/semver-util/issues)
 
 ## Getting Started
 
@@ -23,7 +24,7 @@ Options:
 
 Use the `compare` command to check ordinality of two semantic versions. The command will output `true` or `false` to `stdout`. The process exit code is also set to `1` for commands that output `false`.
 
-```shell
+```bash
 $ semver compare 1.2.3 gt 1.2.0
 true
 
