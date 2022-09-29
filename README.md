@@ -13,7 +13,7 @@ $ semver --help
 Usage: semver <COMMAND>
 
 Commands:
-  compare  Compare ordinality of two versions
+  cmp      Compare ordinality of two versions
   seq      Generate a sequence of versions
   help     Print this message or the help of the given subcommand(s)
 
@@ -23,22 +23,22 @@ Options:
 
 ## Comparing Versions
 
-Use the `compare` command to check ordinality of two semantic versions. The command will output `true` or `false` to `stdout`. The process exit code is also set to `1` for commands that output `false`.
+Use the `cmp` command to check ordinality of two semantic versions. The command will output `true` or `false` to `stdout`. The process exit code is also set to `1` for commands that output `false`.
 
 ```bash
-$ semver compare 1.2.3 gt 1.2.0
+$ semver cmp 1.2.3 gt 1.2.0
 true
 
-$ semver compare 1.2.3 lt 1.2.0
+$ semver cmp 1.2.3 lt 1.2.0
 false
 
-$ semver compare 1.2.3 gte 1.2.3
+$ semver cmp 1.2.3 gte 1.2.3
 true
 
-$ semver compare 1.2.3 lte 1.2.2
+$ semver cmp 1.2.3 lte 1.2.2
 false
 
-$ semver compare 1.2.3 eq 1.2.3
+$ semver cmp 1.2.3 eq 1.2.3
 true
 ```
 
@@ -57,7 +57,7 @@ new_version () {
   echo "new version detected"
 }
 
-semver compare $1 gt $2 > /dev/null \
+semver cmp $1 gt $2 > /dev/null \
   && new_version \
   || old_version
 ```

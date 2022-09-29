@@ -1,6 +1,6 @@
 [package]
 name = "semver-util"
-version = "0.1.2"
+version = "0.2.0"
 
 authors = ["Sean Bruton <sean@thestrangematter.com>"]
 categories = ["command-line-utilities"]

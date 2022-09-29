@@ -12,26 +12,26 @@
 //!
 //! ## Comparing Versions
 //!
-//! Use the `compare` command to check ordinality of two semantic versions.
+//! Use the `cmp` command to check ordinality of two semantic versions.
 //!
 //! Command will output `true` or `false` to `stdout`.
 //!
 //! Process exit code is also set to `1` for commands that output `false`.
 //!
 //! ```bash
-//! $ semver compare 1.2.3 gt 1.2.0
+//! $ semver cmp 1.2.3 gt 1.2.0
 //! true
 //!
-//! $ semver compare 1.2.3 lt 1.2.0
+//! $ semver cmp 1.2.3 lt 1.2.0
 //! false
 //!
-//! $ semver compare 1.2.3 gte 1.2.3
+//! $ semver cmp 1.2.3 gte 1.2.3
 //! true
 //!
-//! $ semver compare 1.2.3 lte 1.2.2
+//! $ semver cmp 1.2.3 lte 1.2.2
 //! false
 //!
-//! $ semver compare 1.2.3 eq 1.2.3
+//! $ semver cmp 1.2.3 eq 1.2.3
 //! true
 //! ```
 //! **Comparing versions in another shell script**
@@ -49,7 +49,7 @@
 //!   echo "new version detected"
 //! }
 //!
-//! semver compare $1 gt $2 > /dev/null \
+//! semver cmp $1 gt $2 > /dev/null \
 //!   && new_version \
 //!   || old_version
 //! ```
@@ -117,7 +117,7 @@ struct SeqArgs {
 #[derive(Subcommand)]
 enum Command {
     /// Compare ordinality of two versions
-    Compare(CompareArgs),
+    Cmp(CompareArgs),
     /// Generate a sequence of versions
     Seq(SeqArgs),
 }
@@ -131,12 +131,12 @@ struct Args {
 fn main() {
     let args = Args::parse();
     match &args.command {
-        Command::Compare(compare_args) => compare(&args, compare_args),
+        Command::Cmp(compare_args) => cmp(&args, compare_args),
         Command::Seq(seq_args) => seq(&args, seq_args),
     }
 }
 
-fn compare(_args: &Args, compare_args: &CompareArgs) {
+fn cmp(_args: &Args, compare_args: &CompareArgs) {
     let result = match compare_args.comparator {
         Comparator::Equal => compare_args.version1 == compare_args.version2,
         Comparator::GreaterThan => compare_args.version1 > compare_args.version2,

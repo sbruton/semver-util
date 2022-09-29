@@ -22,8 +22,12 @@ clean:
 publish-bins:
     just _shared publish-bins
 
+# Publish crate to https://crates.io
+publish-crate:
+    cargo publish
+
 # Publish all build artifacts
-publish: publish-bins
+publish: publish-bins publish-crate
 
 # Sync shared justfile
 _sync:

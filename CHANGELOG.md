@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Renamed command `compare` to `cmp`
+- BREAKING: Renamed command `compare` to `cmp`
 
 ## [0.1.2] - 2022-09-28
 
@@ -29,7 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Command `compare`: compare the ordinality of two versions
 
-[unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.1.2...HEAD
-[0.1.2]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.1.1...v0.1.2
-[0.1.1]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/olivierlacan/keep-a-changelog/releases/tag/v0.1.0
+[unreleased]: https://github.com/sbruton/justfile/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/sbruton/justfile/compare/v0.1.2...v0.2.0
+[0.1.2]: https://github.com/sbruton/justfile/compare/v0.1.1...v0.1.2
+[0.1.1]: https://github.com/sbruton/justfile/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/sbruton/justfile/releases/tag/v0.1.0
