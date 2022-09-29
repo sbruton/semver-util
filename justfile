@@ -6,11 +6,11 @@ ts := `gdate -u +%Y-%m-%dT%H:%M:%S.%6NZ || date -u +%Y-%m-%dT%H:%M:%S.%6NZ`
 
 # Run a method from shared justfile
 @_shared cmd *FLAGS: _sync
-    just -f .cache/justfile {{cmd}} {{ts}} `pwd`
+    just -f .cache/justfile {{cmd}} {{ts}} `pwd` {{FLAGS}}
 
 # Build for all supported targets
 build:
-    just _shared build-all {{ts}} `pwd`
+    just _shared build-all
 
 # Delete all build artifacts
 clean:
