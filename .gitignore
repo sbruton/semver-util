@@ -37,3 +37,8 @@ load/
 bak/
 back/
 backup/
+
+# local
+.local/
+.cache/
+.last-sync
