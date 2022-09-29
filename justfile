@@ -13,17 +13,17 @@ _sync:
         if [[ -d .cache/.git ]]; then \
             cd .cache; \
             git pull; \
-            cd -; \
+            cd - 2>&1 > /dev/null; \
         else \
             if [[ -d .cache ]]; then rm -rf .cache; fi; \
             mkdir .cache; \
             cd .cache; \
             git clone https://github.com/sbruton/justfile .; \
-            cd -; \
+            cd - 2>&1 > /dev/null; \
         fi; \
     fi
 
-@_default: _sync
+@_default:
     JUST_CHOOSER="sk" just --choose
 
 # Delete all build artifacts
