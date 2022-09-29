@@ -1,10 +1,30 @@
 @_default:
     JUST_CHOOSER="sk" just --choose
 
-# timestamp when just action executed, use gdate from brew:coreutils on macos
+# Timestamp when just action executed, use gdate from brew:coreutils on macos
 ts := `gdate -u +%Y-%m-%dT%H:%M:%S.%6NZ || date -u +%Y-%m-%dT%H:%M:%S.%6NZ`
 
-# sync shared justfile
+# Run a method from shared justfile
+@_shared cmd *FLAGS: _sync
+    just -f .cache/justfile {{cmd}} {{ts}} `pwd`
+
+# Build for all supported targets
+build:
+    just _shared clean build-all
+
+# Delete all build artifacts
+clean:
+    just _shared clean || true > /dev/null
+    rm -rf .cache
+
+# Publish binaries to GitHub release associated with current tag
+publish-bins:
+    just _shared publish-bins
+
+# Publish all build artifacts
+publish: publish-bins
+
+# Sync shared justfile
 _sync:
     if [[ ! -d .cache ]]; then \
         mkdir .cache; \
@@ -26,14 +46,3 @@ _sync:
         fi; \
     fi
 
-# Delete all build artifacts
-clean: _sync
-    just -f .cache/justfile clean `pwd` || true > /dev/null
-    rm -rf .cache
-
-# Publish binaries to GitHub release associated with current tag
-publish-bins: _sync
-    just -f .cache/justfile publish-bins `pwd`
-
-# Publish all build artifacts
-publish: publish-bins
