@@ -1,3 +1,6 @@
+@_default:
+    JUST_CHOOSER="sk" just --choose
+
 # timestamp when just action executed, use gdate from brew:coreutils on macos
 ts := `gdate -u +%Y-%m-%dT%H:%M:%S.%6NZ || date -u +%Y-%m-%dT%H:%M:%S.%6NZ`
 
@@ -22,9 +25,6 @@ _sync:
             cd - 2>&1 > /dev/null; \
         fi; \
     fi
-
-@_default:
-    JUST_CHOOSER="sk" just --choose
 
 # Delete all build artifacts
 clean: _sync
