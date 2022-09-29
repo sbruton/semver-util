@@ -1,3 +1,4 @@
+# Default command switcher
 @_default:
     JUST_CHOOSER="sk" just --choose
 
