@@ -10,7 +10,7 @@ ts := `gdate -u +%Y-%m-%dT%H:%M:%S.%6NZ || date -u +%Y-%m-%dT%H:%M:%S.%6NZ`
 
 # Build for all supported targets
 build:
-    just _shared clean build-all
+    just _shared build-all
 
 # Delete all build artifacts
 clean:
