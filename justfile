@@ -10,12 +10,12 @@ ts := `gdate -u +%Y-%m-%dT%H:%M:%S.%6NZ || date -u +%Y-%m-%dT%H:%M:%S.%6NZ`
 
 # Build for all supported targets
 build:
-    just _shared build-all
+    just _shared build-all {{ts}} `pwd`
 
 # Delete all build artifacts
 clean:
     just _shared clean || true > /dev/null
-    rm -rf .cache
+    rm -rf .cache .last-sync
 
 # Publish binaries to GitHub release associated with current tag
 publish-bins:
