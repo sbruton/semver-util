@@ -1,6 +1,6 @@
 //! # Semantic Version Command Line Utility
 //!
-//! [![Minimum rustc version](https://img.shields.io/badge/rustc-1.60+-lightgray.svg)](https://github.com/rust-random/rand#rust-version-requirements)
+//! [![Minimum rustc version](https://img.shields.io/badge/rustc-1.64+-lightgray.svg)](https://github.com/rust-random/rand#rust-version-requirements)
 //! [![Open issues](https://img.shields.io/github/issues/sbruton/semver-util)](https://github.com/sbruton/semver-util/issues)
 //!
 //! ## Installation

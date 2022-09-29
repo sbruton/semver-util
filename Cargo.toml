@@ -1,6 +1,6 @@
 [package]
 name = "semver-util"
-version = "0.2.0"
+version = "0.2.1"
 
 authors = ["Sean Bruton <sean@thestrangematter.com>"]
 categories = ["command-line-utilities"]
@@ -11,7 +11,7 @@ keywords = ["semver", "version"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/sbruton/semver-util"
-rust-version = "1.60"
+rust-version = "1.64"
 
 [[bin]]
 name = "semver"
