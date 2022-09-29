@@ -97,7 +97,7 @@ clean: _check_toolchain
     cargo clean
 
 # Publish build artifacts to a GitHub release tag
-publish-artifacts tag=`git tag --list | tail -n 1`: build-all
+publish-artifacts tag=`git describe --tag`: build-all
     if [[ -d dist ]]; then rm -rf dist; fi
     mkdir dist
     cp target/aarch64-apple-darwin/release/semver dist/semver.{{tag}}.aarch64-apple-darwin
